@@ -169,7 +169,8 @@ if(count($files) > 0){
 }
 
 if(isset($_GET['json'])){
-	echo json_encode($foundInterns);
+	//echo json_encode($foundInterns);
+	echo "<pre>" . json_encode($foundInterns, JSON_PRETTY_PRINT) . "/<pre>";
 } else {
 	echo $foundInternsHtml;
 }
