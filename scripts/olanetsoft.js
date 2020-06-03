@@ -1,7 +1,7 @@
 //variable declaration
 var fullName = "Idris Olubisi";
 var ID = "HNG-01329";
-var language = "javascript"
+var language = "javascript";
 
 
 //defining the output
