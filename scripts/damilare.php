@@ -4,5 +4,4 @@
 	$language = "php";
 
 	echo "Hello World, this is " . $name . " with HNGi7 ID " . $nternship_id . " using " . $language . " for stage 2 task";
-
 ?>
