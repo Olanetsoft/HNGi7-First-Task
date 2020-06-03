@@ -57,7 +57,7 @@ for ($counter = 0; $counter < count($nfiles); $counter++){
 	}
     
     
-    preg_match("/ [a-zA-Z]+ [a-zA-Z]+ with/", $userString,$matches);
+    preg_match("/ [A-Za-z]+([\ A-Za-z]+)* with/", $userString,$matches);
     preg_match("/ HNG-[0-9]+ using/", $userString,$matches2);
     preg_match("/ [a-zA-Z]+ for/", $userString,$matches3);
 
@@ -78,19 +78,19 @@ for ($counter = 0; $counter < count($nfiles); $counter++){
 	}
 
 
-	
-    if (preg_match("/^Hello World, this is [a-zA-Z]+ [a-zA-Z]+ with HNGi7 ID HNG-[0-9]+ using [a-zA-Z]+ for stage 2 task$/", $userString)){
+	// Hello w[World], this is [last_name] [first_name] [other_names] with HNGi7 ID HNG-[00000] using [lang] for stage 2 task(. or space)
+    if (preg_match("/^Hello [wW]orld, this is [A-Za-z]+([\ A-Za-z]+)* with HNGi7 ID HNG-[0-9]+ using [a-zA-Z]+ for stage 2 task(.|)$/", $userString)){
         $html = $html . 
         "<tr>
             <td scope='row'>".$name."</td>
             <td >".$id."</td>
             <td >".$email."</td>
-            <td>".$userStrings."</td>
+            <td>".$userString."</td>
             <td> <span class='btn btn-success btn-disabled btn-sm'>Pass</span></td>
         </tr>";
         $obj = [
             "file" => $file,
-            "output" => $userStrings,
+            "output" => $userString,
             "email" => $email,
             "fullname" => $name,
             "HNG Id" => $id,
@@ -106,12 +106,12 @@ for ($counter = 0; $counter < count($nfiles); $counter++){
             <td scope='row'>".$name."</td>
             <td >".$id."</td>
             <td >".$email."</td>
-            <td>".$userStrings."</td>
+            <td>".$userString."</td>
             <td> <span class='btn btn-danger btn-disabled btn-sm'>Fail</span></td>
         </tr>";
         $obj = [
             "file" => $file,
-            "output" => $userStrings,
+            "output" => $userString,
             "email" => $email,
             "fullname" => $name,
             "HNG Id" => $id,
