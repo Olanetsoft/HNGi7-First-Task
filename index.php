@@ -18,24 +18,27 @@ $nfiles = filter_files($files);
 
 $html = "";
 $json = [];
-for ($counter = 0; $counter < count($nfiles); $counter++) {
+$pass = 0;
+$fail = 0;
+$python = 0;
+$javascript = 0;
+$php = 0;
+for ($counter = 0; $counter < count($nfiles); $counter++){
     $file = $nfiles[$counter];
     $path_info = pathinfo($file);
-    if ($path_info["extension"] == "js") {
-        $ret = exec("node scripts/" . $file . " 2>&1 ", $output, $return_var);
+    if ($path_info["extension"] == "js"){
+		$ret = exec("node scripts/".$file." 2>&1 ", $output,$return_var);
+		$javascript++;
+        
     }
-    if ($path_info["extension"] == "py") {
-        $ret = exec("python scripts/" . $file . " 2>&1 ", $output, $return_var);
+    if ($path_info["extension"] == "py"){
+		$ret = exec("python scripts/".$file." 2>&1 ", $output,$return_var);
+		$python++;
+        
     }
-    if ($path_info["extension"] == "php") {
-
-        $ret = exec("php scripts/" . $file . " 2>&1 ", $output, $return_var);
-    }
-
-    if (isset($output[0])) {
-        $userStrings = strip_tags($output[0]);
-    } else {
-        $userStrings = "nothing returned";
+    if ($path_info["extension"] == "php"){
+		$ret = exec("php scripts/".$file." 2>&1 ", $output,$return_var);
+		$php++;
     }
 
     $detail = explode(" and ", $userStrings);
@@ -82,34 +85,36 @@ for ($counter = 0; $counter < count($nfiles); $counter++) {
         </tr>";
         $obj = [
             "file" => $file,
-            "output" => $userString,
+            "output" => $userStrings,
             "email" => $email,
             "fullname" => $name,
             "HNG Id" => $id,
             "language" => $language,
             "status" => "pass"
         ];
-        array_push($json, $obj);
+		array_push($json,$obj);
+		$pass++;
         $output = [];
-    } else {
-        $html = $html .
-            "<tr>
-            <td scope='row'>" . $name . "</td>
-            <td >" . $id . "</td>
-            <td >" . $email . "</td>
-            <td>" . $userStrings . "</td>
+    }else {
+        $html = $html . 
+        "<tr>
+            <td scope='row'>".$name."</td>
+            <td >".$id."</td>
+            <td >".$email."</td>
+            <td>".$userStrings."</td>
             <td> <span class='btn btn-danger btn-disabled btn-sm'>Fail</span></td>
         </tr>";
         $obj = [
             "file" => $file,
-            "output" => $userString,
+            "output" => $userStrings,
             "email" => $email,
             "fullname" => $name,
             "HNG Id" => $id,
             "language" => $language,
             "status" => "fail"
         ];
-        array_push($json, $obj);
+		array_push($json,$obj);
+		$fail++;
         $output = [];
     }
 }
