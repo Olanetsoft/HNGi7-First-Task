@@ -3,7 +3,7 @@ function task_1(){
     let slackId = "HNGi7 U014DTPV44E";
     let progLanguage = "JavaScript";
 
-    let displayInfo = `Hello World , this is ${fullName} with HNGi7 ID ${slackId} using ${progLanguage} for task 2 and inyangasi4.com`;
+    let displayInfo = `Hello World , this is ${fullName} with HNGi7 ID ${slackId} using ${progLanguage} for stage 2 task and inyangasi4.com`;
     
     return displayInfo;
  
