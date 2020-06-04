@@ -1,4 +1,4 @@
-function mary () {
+function mary1 () {
     return "Hello World, this is Enoch Mary Orevaoghene with HNGi7 ID HNG-00484 using javascript for stage 2 task and morevaoghene@gmail.com";
 }
-console.log(mary())
+console.log(mary1())
