@@ -53,9 +53,9 @@ for ($counter = 0; $counter < count($nfiles); $counter++) {
     } else {
         $email = "";
     }
-
-
-    preg_match("/ [a-zA-Z]+ [a-zA-Z]+ with/", $userString, $matches);
+    
+    //"matches" - this only outputs two names regardless of a person's multiple names
+    preg_match("/ [A-Za-z]+([\ A-Za-z]+)* with/", $userString, $matches); 
     preg_match("/ HNG-[0-9]+ using/", $userString, $matches2);
     preg_match("/ [a-zA-Z]+ for/", $userString, $matches3);
 
@@ -78,12 +78,12 @@ for ($counter = 0; $counter < count($nfiles); $counter++) {
 
 
 
-	
-    if (preg_match("/^Hello World, this is [a-zA-Z]+ [a-zA-Z]+ with HNGi7 ID HNG-[0-9]+ using [a-zA-Z]+ for stage 2 task$/", $userString)){
+	// Hello World, this is [last_name] [first_name] [other_names] with HNGi7 ID HNG-[00000] using [lang] for stage 2 task
+    if (preg_match("/^Hello World, this is [A-Za-z]+([\ A-Za-z]+)* with HNGi7 ID HNG-[0-9]+ using [a-zA-Z]+ for stage 2 task$/", $userString)){
 
         $obj = [
             "file" => $file,
-            "output" => $userStrings,
+            "output" => $userString,
             "email" => $email,
             "fullname" => $name,
             "HNGId" => $id,
@@ -98,7 +98,7 @@ for ($counter = 0; $counter < count($nfiles); $counter++) {
 
         $obj = [
             "file" => $file,
-            "output" => $userStrings,
+            "output" => $userString,
             "email" => $email,
             "fullname" => $name,
             "HNGId" => $id,
