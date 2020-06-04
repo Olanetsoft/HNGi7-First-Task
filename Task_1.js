@@ -3,7 +3,7 @@ function Task_1(){
   var full_name = "Uchenna Mbah Favour";
   var HNGi7_id = "HNG-03798";
   var language = "JavaScript";
-  
+  var email    = "smartnnamdilove60@gmail.com";
   var task_display  = "Hello world, this is " + full_name + " with HNGi7 id " + HNGi7_id +"  using "+ language +" for stage 2 task ";
 
 return task_display;
