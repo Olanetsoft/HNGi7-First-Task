@@ -1,4 +1,3 @@
-'''AMOO DANIEL from Team GRANITE TASK 2 '''
 hng_id = 'HNG-02816'
 name = 'Amoo Daniel'
 lang= 'Python'
