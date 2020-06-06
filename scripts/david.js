@@ -1,5 +1,5 @@
 let profile = {
-    fullName:'Davidson Ayo',
+    fullName:'Davidson Davidson',
     Id:'HNG-06359',
     language:'javascript',
     email:'davidbrain162@gmail.com'
