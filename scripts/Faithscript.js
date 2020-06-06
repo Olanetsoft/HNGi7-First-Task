@@ -5,4 +5,4 @@ var emailAddress = 'lacrimy28@gmail.com';
 
 
 console.log('Hello World, ', 'this is '+ Name +' with '+  hngId +' using '
-+  programmingLanguage + ' for stage 2 '+'and '+'email ' + emailAddress);
++  programmingLanguage + ' for stage 2 '+'task '+ 'and '+'email ' + emailAddress);
